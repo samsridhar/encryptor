@@ -52,6 +52,8 @@
 		          var token = result.credential.accessToken;
 		         
 		          document.getElementById('name').innerHTML="Welcome "+user.displayName;
+				document.getElementById('ProfileImage').setAttribute('src',user.photoURL);
+				document.getElementById('ProfileImage').style.display = "block";
 		          document.getElementById('DecryptFile').style.display = "block";
 		          document.getElementById('EncryptFile').style.display = "block";
 				firebase.database().ref(user.uid+'/').orderByValue().on("value", function(data) {
@@ -118,6 +120,8 @@
 		          var email = user.email;
 		          var emailVerified = user.emailVerified;
 		          var photoURL = user.photoURL;
+				document.getElementById('ProfileImage').setAttribute('src',photoURL);
+				document.getElementById('ProfileImage').style.display = "block";
 		          var isAnonymous = user.isAnonymous;
 		          var uid = user.uid;
 		          var providerData = user.providerData;
@@ -169,6 +173,8 @@
 
 			<div id="step1">
 				<div class="content">
+					
+					<img src="" id="ProfileImage" class="img img-circle" style="display:none">
 					
 					<h3 id="name">SignIn For Recovery</h3>
 					<!-- Button that handles sign-in/sign-out -->
