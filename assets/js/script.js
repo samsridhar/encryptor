@@ -43,8 +43,8 @@ $(function(){
 
 		file = e.target.files[0];
 
-		if(file.size > 1024*1024*1024*1024){
-			alert('Please choose files smaller than 1mb, otherwise you may crash your browser. \nThis is a known issue. See the tutorial.');
+		if(file.size > 1024*1024){
+			alert('Please choose files smaller than 1mb');
 			return;
 		}
 
