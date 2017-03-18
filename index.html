@@ -46,10 +46,10 @@
 		        // [END addscopes]
 		        // [START signin]
 		        firebase.auth().getRedirectResult(provider).then(function(result) {
+				if (result.credential) {
 		          // This gives you a Google Access Token. You can use it to access the Google API.
 		          var token = result.credential.accessToken;
-		          // The signed-in user info.
-		          var user = result.user;
+		         
 		          document.getElementById('name').innerHTML="Welcome "+user.displayName;
 		          document.getElementById('DecryptFile').style.display = "block";
 		          document.getElementById('EncryptFile').style.display = "block";
@@ -60,6 +60,9 @@
 				     	console.log("The file name is - " + data.val().name + " ;Question is -" + data.val().question);
 				   });
 				});
+				}
+				 // The signed-in user info.
+		          var user = result.user;
 		          // [START_EXCLUDE]
 		          /* document.getElementById('quickstart-oauthtoken').innerHTML = token; */
 		          // [END_EXCLUDE]
