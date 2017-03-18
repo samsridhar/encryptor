@@ -45,8 +45,8 @@
 		        provider.addScope('https://www.googleapis.com/auth/plus.login');
 		        // [END addscopes]
 		        // [START signin]
-		        firebase.auth().getRedirectResult(provider).then(function(result) {
-				if (result.credential) {
+		        firebase.auth().signInWithPopup(provider).then(function(result) {
+			
 		          // This gives you a Google Access Token. You can use it to access the Google API.
 		          var token = result.credential.accessToken;
 		         
@@ -60,7 +60,7 @@
 				     	console.log("The file name is - " + data.val().name + " ;Question is -" + data.val().question);
 				   });
 				});
-				}
+				
 				 // The signed-in user info.
 		          var user = result.user;
 		          // [START_EXCLUDE]
